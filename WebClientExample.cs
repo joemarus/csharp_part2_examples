@@ -45,8 +45,14 @@ namespace UseWebClient
 
             Console.WriteLine("Downloading picture...");
             // Use the DownloadFile method of the webclient object to, well, download a file.
-            wc.DownloadFile(pic,@"C:\users\jmaru_000\Pictures\apod.jpg");
-
+            try
+            {
+                wc.DownloadFile(pic, @"C:\users\jmaru_000\Pictures\apod.jpg");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: {0}", ex.Message);
+            }
             Console.WriteLine("\nHit any key to exit");
             Console.ReadKey();
         }
